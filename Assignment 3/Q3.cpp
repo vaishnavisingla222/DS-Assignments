@@ -6,14 +6,14 @@ using namespace std;
 void isBalanced(string s) 
 {
     stack<char> st;
-    for (int i = 0; i < s.length(); i++) 
+    for (int i=0; i<s.length(); i++) 
     {
-        char ch = s[i]; 
+        char ch=s[i]; 
         
-        if (ch == '(')
+        if (ch=='(')
         st.push(ch);
 
-        else if (ch == ')') 
+        else if (ch==')') 
         {
             if (st.empty())
             cout<<"Invalid Parethesis\n";
