@@ -27,7 +27,7 @@ int main()
         }
         else
         {
-            while(!small.empty() && arr[i]<small.top())
+            while(!small.empty() && arr[i]<=small.top())
             small.pop();
 
             if(small.empty())
