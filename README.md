@@ -1,2 +1,2 @@
-# DSA-Assignments
+# DS-Assignments
 Contains all the assignment questions
