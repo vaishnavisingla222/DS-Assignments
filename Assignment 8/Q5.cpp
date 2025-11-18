@@ -50,7 +50,7 @@ void heapSort(int arr[], int n, bool increasing)
 
 int main() 
 {
-    int arr[]={12, 11, 13, 5, 6, 7};
+    int arr[]={5,6,7,8,3,4};
     int n=6;
 
     cout<<"Original array: ";
