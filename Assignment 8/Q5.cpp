@@ -1,50 +1,49 @@
 #include <iostream>
 using namespace std;
 
-void heapify(int arr[],int n,int i,bool increasing) 
+void heapify(int arr[],int n,int i,bool inc) 
 {
-    int extreme=i;
+    int large=i;
     int left=2*i+1;
     int right=2*i+2;
 
-    if (increasing) 
+    if (inc) 
     { 
-        if (left<n && arr[left]>arr[extreme])
-        extreme = left;
+        if (left<n && arr[left]>arr[large])
+        large=left;
       
-        if (right<n && arr[right]>arr[extreme])
-        extreme=right;
+        if (right<n && arr[right]>arr[large])
+        large=right;
     } 
     else 
     {
-        if (left<n && arr[left]<arr[extreme])
-        extreme=left;
-        if (right<n && arr[right]<arr[extreme])
-        extreme=right;
+        if (left<n && arr[left]<arr[large])
+        large=left;
+        if (right<n && arr[right]<arr[large])
+        large=right;
     }
 
-    if (extreme != i) 
+    if (large!=i) 
     {
         int temp=arr[i];
-        arr[i]=arr[extreme];
-        arr[extreme]=temp;
-        heapify(arr,n,extreme,increasing);
+        arr[i]=arr[large];
+        arr[large]=temp;
+        heapify(arr,n,large,inc);
     }
 }
 
-void heapSort(int arr[], int n, bool increasing) 
+void heapSort(int arr[], int n, bool inc) 
 {
     for (int i=n/2-1;i>=0;i--)
-    heapify(arr, n, i, increasing);
+    heapify(arr,n,i,inc);
 
-    
-    for (int i = n - 1; i > 0; i--) 
+    for (int i=n-1;i>0;i--) 
     {    
         int temp=arr[0];
         arr[0]=arr[i];
         arr[i]=temp;
       
-        heapify(arr,i,0,increasing);
+        heapify(arr,i,0,inc);
     }
 }
 
@@ -57,8 +56,8 @@ int main()
     for (int i=0;i<n; i++) 
     cout<<arr[i]<<" ";
 
-    bool increasing=true;
-    heapSort(arr,n,increasing);
+    bool inc=true;
+    heapSort(arr,n,inc);
 
     cout<<"\nSorted array:";
     for (int i=0;i<n;i++) 
