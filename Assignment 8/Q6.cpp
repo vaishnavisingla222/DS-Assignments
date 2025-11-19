@@ -1,4 +1,4 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
 #define MAX 1000
 
@@ -59,7 +59,11 @@ int findMax(PriorityQueue &pq)
         if (largest==i)
         break;
 
-        swap(pq.arr[i],pq.arr[largest]);
+        //swap
+        int temp=pq.arr[i];
+        pq.arr[i]=pq.arr[largest];
+        pq.arr[largest]=temp;
+
         i=largest;
     }
     return root;
@@ -71,7 +75,6 @@ void display(PriorityQueue pq)
     cout<<pq.arr[i]<<" ";
     cout<<endl;
 }
-
 int main() 
 {
     PriorityQueue pq;
@@ -84,6 +87,7 @@ int main()
     insert(pq,6);
 
     display(pq);
+
     cout<<"Max: "<<findMax(pq)<<endl;
     display(pq);
 
